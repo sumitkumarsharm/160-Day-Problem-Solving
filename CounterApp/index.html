@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        * {
+
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .container1 {
+            width: 100%;
+            padding-top: 40vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        button {
+            padding-inline: 10px;
+            padding-block: 10px;
+            font-size: 20px;
+        }
+
+        h1 {
+            font-size: 5rem;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container1">
+            <button class="increment" onclick="increment()">increment(+)</button>
+            <h1></h1>
+            <button class="Decrement" onclick="Decrement()">Decrement(-)</button>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- writting script -->
+    <script>
+        // selecting elemt
+        const h1 = document.querySelector('h1')
+        const container = document.querySelector('.container')
+        // const increment = document.querySelector('increment')
+        // const Decrement = document.querySelector('Decrement')
+
+
+        // creating
+        let p = document.createElement("p")
+
+        // count   <  50 == green
+        // red
+
+        let count = 0
+        h1.textContent = count
+        function increment() {
+            h1.textContent = count++
+            if (count > 0) {
+                p.style.display = "none"
+            } else {
+                p.style.display = "block"
+            }
+
+        }
+
+        function Decrement() {
+            h1.textContent = count--;
+
+            if (count < 0) {
+                p.textContent = `we don't go negative!`
+                container.appendChild(p)
+                count = 0
+                p.style.display = "block"
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
